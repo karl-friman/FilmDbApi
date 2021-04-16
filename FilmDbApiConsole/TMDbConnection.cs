@@ -41,9 +41,9 @@ namespace FilmDbApiConsole
             Spacer();
         }
 
-        public async Task FetchMovieExample(TMDbClient client)
+        public async Task FetchMovieExample(TMDbClient client, string query)
         {
-            string query = "Thor";
+            //string query = "Thor";
 
             // This example shows the fetching of a movie.
             // Say the user searches for "Thor" in order to find "Thor: The Dark World" or "Thor"

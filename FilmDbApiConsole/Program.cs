@@ -19,7 +19,9 @@ namespace FilmDbApiConsole
             // ------------- Basic TagLibSharp Code -------------
             string sample_file = @"E:\sample.m4v";
             File file = File.Create(sample_file);
-            Console.WriteLine(file.Tag.FirstPerformer);
+            //var filmTitle = file.Tag.FirstPerformer;
+            var filmTitle = file.Tag.Title;
+            Console.WriteLine(filmTitle);
 
             // ------------- TMDbLib Code -------------
 
@@ -34,7 +36,7 @@ namespace FilmDbApiConsole
             await connection.FetchConfig(client);
 
             // Try fetching a movie
-            await connection.FetchMovieExample(client);
+            await connection.FetchMovieExample(client: client, query: filmTitle);
         }
         
         

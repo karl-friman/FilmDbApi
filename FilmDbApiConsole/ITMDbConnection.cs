@@ -6,7 +6,7 @@ namespace FilmDbApiConsole
     public interface ITMDbConnection
     {
         Task FetchConfig(TMDbClient client);
-        Task FetchMovieExample(TMDbClient client);
+        Task FetchMovieExample(TMDbClient client, string query);
         void Spacer();
     }
 }
