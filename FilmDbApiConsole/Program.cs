@@ -19,7 +19,6 @@ namespace FilmDbApiConsole
             // ------------- Basic TagLibSharp Code -------------
             string sample_file = @"E:\sample.m4v";
             File file = File.Create(sample_file);
-            //var filmTitle = file.Tag.FirstPerformer;
             var filmTitle = file.Tag.Title;
             Console.WriteLine(filmTitle);
 
@@ -29,14 +28,12 @@ namespace FilmDbApiConsole
             // also specify if SSL should be used, and if another server address should be used.
             using TMDbClient client = new TMDbClient("86699bea70cf1bf47755f1e6bb2f60b0");
 
-            TMDbConnection connection = new TMDbConnection();
-
             // We need the config from TMDb in case we want to get stuff like images
             // The config needs to be fetched for each new client we create, but we can cache it to a file (as in this example).
-            await connection.FetchConfig(client);
+            await TMDbConnection.FetchConfig(client);
 
             // Try fetching a movie
-            await connection.FetchMovieExample(client: client, query: filmTitle);
+            await TMDbConnection.FetchMovieExample(client: client, query: filmTitle);
         }
         
         

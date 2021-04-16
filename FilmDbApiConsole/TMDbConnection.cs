@@ -12,10 +12,10 @@ using TMDbLib.Utilities.Serializer;
 
 namespace FilmDbApiConsole
 {
-    public class TMDbConnection : ITMDbConnection
+    public class TMDbConnection
     {
 
-        public async Task FetchConfig(TMDbClient client)
+        public static async Task FetchConfig(TMDbClient client)
         {
             System.IO.FileInfo configJson = new FileInfo("config.json");
 
@@ -41,8 +41,9 @@ namespace FilmDbApiConsole
             Spacer();
         }
 
-        public async Task FetchMovieExample(TMDbClient client, string query)
+        public static async Task FetchMovieExample(TMDbClient client, string query)
         {
+            //Currently searching from media title.
             //string query = "Thor";
 
             // This example shows the fetching of a movie.
@@ -73,7 +74,7 @@ namespace FilmDbApiConsole
             Spacer();
         }
 
-        public void Spacer()
+        public static void Spacer()
         {
             Console.WriteLine();
             Console.WriteLine(" ----- ");
